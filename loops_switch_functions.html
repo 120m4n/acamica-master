@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //estrucutra para evaluar difierentes valores
+      const lenguaje = "Java";
+      switch (lenguaje) {
+        case "Java":
+          console.log("Este lenguaje es java");
+          break;
+        case "Javascript":
+          console.log("Este lenguaje es javascript");
+          break;
+        default:
+          console.log("Ninguno");
+      }
+
+      //for-in recomendado usar sobre objetos
+      const object = {a: 1, b: 2};
+      for (const key in object) {
+        console.log(key, object[key]);
+      }
+
+      //for-loop itera sobre un elemento iterable string, array
+      const text = "Happy new year";
+      for (let index = 0; index < text.length; index++) {
+        const element = text[index];
+        console.log(element);
+      }
+
+      //for-of itera sobre un elemento iterable string, array
+      console.log("\n\n");
+      for (const iterator of text) {
+        console.log(iterator);
+      }
+
+      //use continue para saltar al siguiente elemento
+      console.log("\n\n");
+      for (let index = 0; index < 10; index++) {
+        if (index % 2 !== 0) {
+          continue;
+        }
+        console.log(index);
+      }
+
+      //use break para romper la ejecución del ciclo inmediatamente
+      console.log("\n\n");
+      for (let index = 0; index < 10; index++) {
+        if (index === 5) {
+          break;
+        }
+        console.log(index);
+      }
+
+      //ejecuta hasta que la expresion sea false
+      let val = 0;
+      while (false) {
+        console.log(val);
+      }
+
+      //Lo que esta dentro del "do" se ejecuata al menos una vez, luego n veces segun la condicion del while
+      do {
+        console.log("Do-while");
+      } while (false);
+
+      //declaracion de funcion
+      function buildNameWithFormat2(name, lastname) {
+        return name + " - " + lastname;
+      }
+
+      //funcion como expression
+      const buildNameWithFormat3 = function (name, lastname) {
+        return name + " - " + lastname;
+      };
+
+      //funcion de ejecución inmediata
+      (function (name) {
+        console.log("Ejecución inmediata", name);
+      })("Acamica");
+
+      //funcion arrow, funcion anonima or funcion lambda
+      const myFisrtLambda = (name, lastname) => "Hola " + name + " " + lastname;
+
+      //el valor por defecto de una funcion será undefined si no retorna valor
+      const result = myFisrtLambda("John", "Acamica");
+      console.log(result);
+
+      //Programemos
+      const validUser = "testAcamica";
+      const validPassword = "testAcamica";
+
+      function validate(usuario, contrasena) {
+        return usuario === validUser && contrasena === validPassword;
+      }
+
+      let isValidUser = false;
+      do {
+        const usuario = prompt("Ingrese el usuario");
+        const contrasena = prompt("Ingrese el contraseña");
+        isValidUser = validate(usuario, contrasena);
+      } while (isValidUser === false);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //functions and scope
+      var airline = "Avianca";
+      function printTicket(ticketNumber) {
+        newAirline = "Wingo";
+        console.log(airline, newAirline, ticketNumber);
+      }
+      console.log(airline);
+      printTicket("456");
+      console.log(newAirline);
+
+      bookTicket("7889-89");
+      function bookTicket(creditCard) {
+        console.log("CreditCard", creditCard);
+      }
+      console.log(window.bookTicket);
+
+      //bookTicketByPassenger("ABC", "Acamica"); it will fail, hoisting does not apply on arrow functions
+      var bookTicketByPassenger = (creditCard, passenger) => {
+        console.log("Arrow", creditCard, passenger);
+      };
+
+      //function as expresion
+      var printSeats = function () {
+        return 30;
+      };
+
+      var multiplySeats = function (multiply) {
+        return 30 * multiply;
+      };
+
+      //function that receives a function as argument
+      function printPassengersAndSeats(passenger, multiply, seatsFunction) {
+        console.log(passenger, seatsFunction(multiply));
+      }
+      printPassengersAndSeats("Acamica", null, printSeats);
+      printPassengersAndSeats("Acamica", 4, multiplySeats);
+
+      //function inmediate execution
+      (function (name) {
+        console.log("Ejecución inmediata", name);
+      })("Acamica");
+
+      //preconditions
+      let plane = {
+        seats: 10,
+      };
+
+      function bookSeat(numberOfTickets) {
+        if (numberOfTickets > plane.seats) {
+          alert("there arent seats availiable");
+          return;
+        }
+        plane.seats -= numberOfTickets;
+      }
+      let tickets = parseInt(prompt("Cuantos tiquetes"));
+      bookSeat(tickets);
+
+      //try-catch and preconditions
+      function payTicket(price, taxes) {
+        if (taxes === 0) {
+          throw new Error("Test");
+        }
+        let total = price + taxes;
+        return true;
+      }
+
+      try {
+        console.log(payTicket(90, 0));
+      } catch (myerror) {
+        console.log("There was an error ", myerror.message);
+      }
+
+      /******************PROGRAMAMOS*********************/
+      let users = ["Pepe", "Juan", "Fiora", "Mafalda", "Salvador", "Gaviota"];
+
+      (function addUser() {
+        //input usuario
+        let newUsername = prompt("Ingrese un nuevo nombre de usuario");
+        //manejo de errores
+        try {
+          //throw new Error si username vacío
+          if (!newUsername) {
+            throw new Error(
+              "Información incompleta, no se ingresó un username"
+            );
+          }
+          //throw new Error si username repetido
+          for (let i = 0; i < users.length; i++) {
+            if (newUsername === users[i]) {
+              throw new Error("Usuario ya existente");
+            }
+          }
+          //agregar usuario nuevo al array
+          users.push(newUsername);
+          alert(`Bienvenido ${newUsername}!`);
+          //observar que si no hay error se agrega al array
+          console.log(users);
+        } catch (error) {
+          alert(error);
+          //observar que si hay un error no se agrega
+          console.log(users);
+        }
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      console.log("\n\n*******************Scope**********************\n\n");
+      console.log(this);
+
+      /*Hoisting*/
+      var balanceVar = 2300000;
+      console.log(balanceVar);
+      console.log(this.balanceVar);
+      console.log(window.balanceVar);
+
+      //console.log(balanceLet);
+      let balanceLet = 2300000;
+      console.log(balanceLet);
+      console.log(this.balanceLet);
+      console.log(window.balanceLet);
+
+      /*scope in blocks*/
+      {
+        var accountVarBlock = "VAR-BLOCK-2345";
+      }
+      console.log(accountVarBlock);
+
+      {
+        let accountLetBlock = "LET-BLOCK-7890";
+        console.log(accountLetBlock);
+      }
+      //console.log(accountLetBlock); fail
+
+      /*scope in conditionals*/
+      if (true) {
+        var accountVarBlockIf = "IF-VAR-BLOCK-888";
+      }
+      console.log(accountVarBlockIf);
+
+      let accountLetBlockIf = null;
+      if (true) {
+        accountLetBlockIf = "IF-LET-BLOCK-888";
+      }
+      console.log(accountLetBlockIf);
+
+      /*scope in for*/
+      for (var indexForVar = 0; indexForVar < 10; indexForVar++) {
+        //do something
+      }
+      console.log(indexForVar);
+
+      for (let indexForLet = 0; indexForLet < 10; indexForLet++) {
+        //do something
+      }
+      //console.log(indexForLet); //this line will fail
+
+      let indexForLet = 0;
+      for (; indexForLet < 10; indexForLet++) {
+        //do something
+      }
+
+      console.log("indexForLet........", indexForLet); //this line will fail
+
+      /*scope in functions*/
+      var account = "VAR-FUNCTION-888";
+      function printBalance() {
+        let account = "LET-INSIDE-FUNC-78744";
+        console.log("Inside function", this.account, account, window.account);
+      }
+      printBalance();
+
+      console.log("\n\n*******************Arrays**********************\n\n");
+
+      /*Arrays*/
+
+      let banks1 = new Array(
+        "Bancolombia",
+        "Banco de Bogota",
+        "Banco Caja Social",
+        "Nubank",
+        "Av Villas"
+      );
+
+      let banks2 = new Array();
+      banks2[0] = "Bancolombia";
+
+      let banks3 = [];
+      banks3[0] = "Bancolombia";
+
+      let banks = [
+        "Bancolombia",
+        "Banco de Bogota",
+        "Banco Caja Social",
+        "Nubank",
+        "Av Villas",
+      ];
+
+      for (let index = 0; index < banks.length; index++) {
+        console.log(banks[index]);
+      }
+
+      //Obtener una posicion especifica
+      const bankInThritdPosition = banks[3];
+      console.log(bankInThritdPosition);
+
+      //Cambiar el valor de un elemento en una posicion especifica
+      banks[0] = "Davivienda";
+      console.log(banks);
+
+      //Obtener el tamaño del arreglo
+      const length = banks.length;
+      console.log(length);
+
+      //Obtener posicion de un elemento en el array
+      const indexOf = banks.indexOf("Nubank");
+      console.log("indexOf", indexOf);
+
+      //agregar un elemento al inico
+      banks.unshift("Sudameris");
+      console.log(banks);
+
+      //eliminar el primer elemento
+      banks.shift();
+      console.log(banks);
+
+      //agregar un elemento al final
+      banks.push("Sudameris");
+      console.log(banks);
+
+      //eliminar el ultimo elemento
+      banks.pop();
+      console.log(banks);
+
+      console.log("************Splice***********");
+
+      //recortar el arreglo
+      //elimina los elementos desde la posicion 1
+      //cantidad elementos que deben ser removidos
+      banks.splice(1, 3);
+      console.log(banks);
+
+      //Reemplazar un elemento usando splice
+      banks.splice(1, 1, "Open Bank");
+      console.log(banks);
+
+      //agregar un elemento sin eliminar ninguno usando splice
+      //1 -> position donde será agregado
+      //0 -> cantidad elementos que deben ser removidos
+      //...Elementos a agregar
+      banks.splice(1, 0, "My splice bank");
+      console.log(banks);
+
+      console.log("************Slice***********");
+
+      //Slice un array
+      let banksSliced = banks.slice(0, 2);
+      console.log(banksSliced);
+      console.log(banks);
+
+      banksSliced = banksSliced.slice(1);
+      console.log(banksSliced);
+      console.log(banks);
+
+      //Unir todos los elementos del array
+      const banksAsText = banks.join("-");
+      console.log(banksAsText);
+      //Invertir valores
+      banks.reverse();
+      console.log(banks);
+
+      //Ordernar valores
+      banks.sort();
+      console.log(banks);
+
+      //unir con otro array
+      const banksConcat = banks.concat(["Sudameris", "Banco Agrario"]);
+      console.log(banks);
+      console.log(banksConcat);
+
+      //programamos
+      //Extension prettier
+      const tiposParaSumar = [
+        "Roman",
+        10,
+        "Diego",
+        "Softnext",
+        56,
+        78,
+        9,
+        "Juan",
+        "Acamica",
+        0,
+      ];
+
+      let total = 0;
+      let elementosNoNumericos = [];
+      for (const element of tiposParaSumar) {
+        console.log(typeof element, isNaN(element));
+        if (typeof element === "number") {
+          total += element;
+        } else {
+          elementosNoNumericos.push(element);
+        }
+      }
+      console.log(total);
+      console.log(elementosNoNumericos);
+    </script>
+  </head>
+  <body></body>
+</html>

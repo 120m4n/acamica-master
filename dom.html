@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .itemMenuList {
+        overflow-x: hidden;
+        white-space: nowrap;
+        height: 5em;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .itemMenuItem {
+        font-weight: bold;
+        letter-spacing: 0px;
+        line-height: 30px;
+        margin-right: 10px;
+        text-decoration: unset;
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="hd-acamica">Acamica Airlines</header>
+    <main>
+      <h3>Aprende remoto sin sentirte remoto</h3>
+      <p>
+        A través de efectivas dinámicas de cursada por videollamada para una
+        nueva era de aprendizaje.
+      </p>
+      <h3>Libera el poder del aprendizaje en grupo</h3>
+      <p>
+        Forma parte de un reducido grupo de estudio, guiado por mentores
+        Profesionales y con el apoyo integral de tutores pedagógicos. Es
+        desafiante aprender online si solo se trata de ti, pero es maravilloso
+        si se trata de todos.
+      </p>
+      <img src="airplane-1651267-1402988.png" id="animation" height="80rem" />
+    </main>
+    <footer>
+      <div>
+        <h3>Contactanos</h3>
+        <input type="text" />
+        <button>Contactar</button>
+      </div>
+    </footer>
+    <script>
+      const menu = ["Log in", "About Us"];
+
+      const body = document.querySelector("body");
+      body.style.fontFamily = "Poppins";
+      body.style.textAlign = "center";
+      body.style.backgroundColor = "#edeeef";
+
+      const header = document.getElementById("hd-acamica");
+      header.style.textAlign = "center";
+      header.style.fontSize = "26px";
+      header.style.color = "rgb(249, 60, 58)";
+      header.style.fontWeight = "bold";
+
+      const newMenu = document.createElement("ul");
+      for (let index = 0; index < menu.length; index++) {
+        const newItem = document.createElement("li");
+        newItem.textContent = menu[index];
+        newItem.id = `menu-${index}`;
+        newItem.classList.add("itemMenuItem");
+        newMenu.appendChild(newItem);
+      }
+
+      newMenu.classList.add("itemMenuList");
+
+      const main = document.getElementsByTagName("main");
+      main[0].appendChild(newMenu);
+
+      document
+        .getElementById("animation")
+        .animate([{transform: "rotate(0deg)"}, {transform: "rotate(360deg)"}], {
+          duration: 7000,
+          iterations: Infinity,
+        });
+
+      document.querySelector("input").placeholder = "Ingresa tu email";
+
+      //Programamos
+      /*const nombre = prompt("Ingrese su nombre");
+      const fontSize = prompt("Ingrese el font-size");
+      const fontColor = prompt("Ingrese el font-color");
+
+      const box = document.createElement("div");
+      box.style.fontSize = fontSize + "px";
+      box.style.color = fontColor;
+      box.innerHTML = nombre;
+
+      const body = document.getElementsByTagName("body");
+      body[0].appendChild(box);*/
+    </script>
+  </body>
+</html>

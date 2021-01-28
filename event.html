@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="css/event.css" rel="stylesheet" />
+  </head>
+  <body>
+    <button id="btn-test">Quitar doble click al div</button>
+    <div class="square">Doble CLick</div>
+
+    <div class="square" id="box1">
+      <div
+        style="background-color: #5a5ada; width: 90px; height: 90px"
+        id="box2"
+      >
+        <div
+          style="background-color: black; width: 70px; height: 70px"
+          id="box3"
+        ></div>
+      </div>
+    </div>
+
+    <button id="toggle">Toggle</button>
+    <div id="test-mouseover" class="square boxCtn"></div>
+
+    <script>
+      const testMouseover = document.querySelector("#test-mouseover");
+      testMouseover.addEventListener("mouseover", (event) => {
+        event.target.style.backgroundColor = "#5a5ada";
+      });
+
+      testMouseover.addEventListener("mouseout", (event) => {
+        event.target.style.backgroundColor = "#ff4f4f";
+      });
+
+      const toggle = document.querySelector("#toggle");
+      toggle.addEventListener("click", (event) => {
+        console.log(testMouseover);
+        testMouseover.classList.toggle("color");
+      });
+
+      const box1 = document.querySelector("#box1");
+      const box2 = document.querySelector("#box2");
+      const box3 = document.querySelector("#box3");
+
+      box1.addEventListener("click", (event) => alert("Box1"));
+      box2.addEventListener("click", (event) => {
+        alert("Box2");
+        event.stopPropagation();
+      });
+      box3.addEventListener("click", (event) => {
+        alert("Box3");
+        event.stopPropagation();
+      });
+
+      //
+      const squareDoubleClick = document.querySelector(".square");
+      //squareDoubleClick.addEventListener("dblclick", ejecutarDobleClick);
+
+      /*squareDoubleClick.addEventListener("dblclick", function (event) {
+        console.log(event.target);
+        event.target.style.backgroundColor = "#5a5ada";
+      });*/
+
+      function dobleClick(event) {
+        console.log(event.target);
+        event.target.style.backgroundColor = "#5a5ada";
+      }
+
+      squareDoubleClick.addEventListener("dblclick", dobleClick);
+
+      //
+      const btnTest = document.getElementById("btn-test");
+      function hacerEsteCuandoDenClick(myEvent) {
+        //console.log(myEvent.target);
+        squareDoubleClick.removeEventListener("dblclick", dobleClick);
+      }
+
+      btnTest.addEventListener("click", hacerEsteCuandoDenClick);
+
+      /**
+       *
+       */
+      function hacerEsteCuandoDenClick2(myEvent) {
+        console.log("Me ejecutaron con el valor", myEvent);
+      }
+
+      function addEventListener(type, myfuncion) {
+        const estaEsUnaVariableDePrueba = "evento";
+        myfuncion(estaEsUnaVariableDePrueba);
+      }
+
+      addEventListener("loQueSea", hacerEsteCuandoDenClick2);
+    </script>
+  </body>
+</html>

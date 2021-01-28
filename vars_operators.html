@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var usandoVar = undefined;
+      console.log(usandoVar);
+      usandoVar = true; //hago lo que quiero
+      console.log(usandoVar);
+
+      const usandoConst = true; // no puede cambiar su valor nunca
+      let algoritmoExitoso = false; //puede cambiar su valor cuando se vuelvan asignar
+      algoritmoExitoso = true;
+
+      let tenemosNueveEstudiatensEnClase = true;
+      if (tenemosNueveEstudiatensEnClase) {
+        console.log("Si hay 9 estudiantes");
+      }
+
+      let numeroDeEstudiantesEnClase = 8;
+      if (numeroDeEstudiantesEnClase++ === 8) {
+        console.log("8");
+      } else if (numeroDeEstudiantesEnClase === 9) {
+        console.log(numeroDeEstudiantesEnClase);
+      } else {
+        console.log("nothing");
+      }
+
+      console.log("print", numeroDeEstudiantesEnClase);
+
+      let nuevoTemaDeEstudio = "9";
+      if (nuevoTemaDeEstudio !== 9) {
+        console.log("Yay!");
+      }
+
+      let estaInteresanteLaClase = true;
+
+      if (nuevoTemaDeEstudio === "9" && estaInteresanteLaClase) {
+        console.log("Yay!");
+      }
+
+      let cantidadDeDineroEnCuenta = 10;
+      cantidadDeDineroEnCuenta = cantidadDeDineroEnCuenta + 1;
+      cantidadDeDineroEnCuenta += 1;
+
+      const par = cantidadDeDineroEnCuenta % 2;
+      console.log(par === 0);
+
+      console.log(10 ** 2);
+
+      console.log(parseInt(10 / 3));
+
+      console.log(typeof cantidadDeDineroEnCuenta);
+      BigInt(
+        "72187398217837219837982173912737129837129873981273987128937981273981273987129837129837129837981237"
+      );
+      let miPrimerBigInt = 1n;
+
+      let a = "asd";
+      const litros = 45;
+      console.log(isNaN(a));
+
+      alert("Hola Chicos listo para programar");
+      const miPrimerNumero = prompt("Ingrese un numero mi amigo");
+      console.log(typeof miPrimerNumero);
+      console.log(
+        parseInt(miPrimerNumero),
+        BigInt(miPrimerNumero),
+        parseFloat(miPrimerNumero)
+      );
+
+      const estoyHaciendoBienLasCosas = confirm(
+        "Esta bien lo que estoy haciendo?"
+      );
+      console.log(typeof estoyHaciendoBienLasCosas);
+
+      const litrosConsumidos = 50;
+      console.log(litrosConsumidos > litros);
+    </script>
+  </head>
+  <body></body>
+</html>

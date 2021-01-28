@@ -1,0 +1,90 @@
+body {
+  font-family: "Poppins";
+  align-content: center;
+  background: #6ab7ff;
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  margin: 0;
+  color: #ffffff;
+  font-weight: lighter;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 29px;
+}
+.phone-container {
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #ffffff;
+  width: 23rem;
+}
+.phone-page {
+  border-radius: 5px;
+  background: #6ab7ff;
+}
+.phone-products {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.product {
+  background-color: #ffffff;
+  border-radius: 15px;
+  margin: 10px;
+  border: #ffffff solid 1px;
+}
+.product img {
+  width: 70px;
+  height: 32px;
+  margin: 12px;
+}
+.product img:hover {
+  content: "";
+}
+.phone-footer {
+  padding: 10px;
+}
+.phone-navigation {
+  display: inline-block;
+}
+.button {
+  background-color: #f06292;
+  width: 50px;
+  position: relative;
+  display: inline-block;
+  padding: 12px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: #ffffff;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.pagination {
+  margin: 10px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+figcaption {
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 768px) {
+  .phone-container {
+    width: 18rem;
+  }
+  .phone-products {
+    padding: 14px;
+  }
+  .product {
+    margin: 17px;
+  }
+}
+
+/* .card:hover {
+  background: url("../imgs/add.svg") no-repeat;
+} */
