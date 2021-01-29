@@ -67,12 +67,17 @@ const addCarrito = event => {
         //valida si ya se selecciono el articulo
         if (isSelect == 0){
             setCarrito(event.target);
+            mensajePersonalizado("elemento agregado exitosamente", elementoAgregado)
         }else{
             // elimina el articulo del carrito
-            delete carrito[event.target.dataset.id]
-            // activa para que el articulo pueda ser seleccionado nuevamente
-            actualizarObjeto(event.target, 0);
-            pintarCarrito();
+            // console.log("paso por aqui")
+            if (mensajePersonalizado("Esta seguro de eliminar el elemento??", elementoEliminado)){
+
+                delete carrito[event.target.dataset.id]
+                // activa para que el articulo pueda ser seleccionado nuevamente
+                actualizarObjeto(event.target, 0);
+                pintarCarrito(); 
+            }
         }
         
         
@@ -173,4 +178,15 @@ const borrarSeleccion = ()=>{
 }
 
 
+const mensajePersonalizado = (mensaje, callback) => {
+    const value = callback(mensaje);
+    return value;
+}
 
+const elementoEliminado = (mensaje)=>{
+    return window.confirm(mensaje);
+}
+
+const elementoAgregado = (mensaje)=>{
+    alert(mensaje);
+}
