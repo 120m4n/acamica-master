@@ -67,7 +67,7 @@ const addCarrito = event => {
         //valida si ya se selecciono el articulo
         if (isSelect == 0){
             setCarrito(event.target);
-            mensajePersonalizado("elemento agregado exitosamente", elementoAgregado)
+            // mensajePersonalizado("elemento agregado exitosamente", elementoAgregado)
         }else{
             // elimina el articulo del carrito
             // console.log("paso por aqui")
@@ -190,3 +190,53 @@ const elementoEliminado = (mensaje)=>{
 const elementoAgregado = (mensaje)=>{
     alert(mensaje);
 }
+
+
+//pedir propiedades para TODO
+const btnpagar = document.getElementById('btn-next');
+
+btnpagar.addEventListener('click', ()=>{
+    console.log(carrito)
+    let carrito_ordenado = [];
+    const propiedad = prompt('Escriba "precio" o "nombre" ');
+    if (propiedad === "precio"){
+         carrito_ordenado = ordenarPor(carrito,comparePorPrecio )
+    }else{
+         carrito_ordenado = ordenarPor(carrito,comparePorAlpha )
+    }
+    
+    console.log(carrito_ordenado);
+
+
+})
+
+const ordenarPor = (productos, callback)=>{
+    const temp = Object.values(productos) //convierte en array
+    return ordenar(temp, callback);
+
+}
+
+
+const ordenar = (array, funcionOrden) =>{
+   return array.sort(funcionOrden);
+}
+
+function comparePorPrecio(a, b) {
+    if (a.precio > b.precio) { return 1; }
+    if (a.precio < b.precio) { return -1; }
+    return 0;
+  }
+
+function comparePorAlpha(a, b) {
+    if (a.id > b.id) { return 1; } 
+    if (a.id < b.id) { return -1; }
+    return 0;
+  }
+
+//TODO
+
+// function comparePorAlphaDesc(a, b) {
+//     if (a.id > b.id) { return 1; } 
+//     if (a.id < b.id) { return -1; }
+//     return 0;
+//   }
