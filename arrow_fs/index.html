@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="elemento">algun elemento</div>
+    <script>
+        let elemento = document.querySelector(".elemento");
+
+        elemento.addEventListener('click', (e) => {
+            console.log(e.currentTarget)
+            e.currentTarget.innerHTML = "algun otro elemento"
+        })
+
+        let telefono = {
+            version :1, 
+            nuevaVersion : function(version) {
+                console.log(this)
+                this.version = version;
+            }
+        }
+
+        telefono.nuevaVersion(1.5)
+        console.log(telefono)
+    </script>
+</body>
+</html>

@@ -48,9 +48,5 @@ const cartas = [
     {id: 47, src: "../imgs/cartas/svg/047-blouse.svg", text:"blouse"},
     {id: 48, src: "../imgs/cartas/svg/048-handbag.svg", text:"handbag"},
     {id: 49, src: "../imgs/cartas/svg/049-scarf.svg", text:"scarf"},
-    {id: 50, src: "../imgs/cartas/svg/050-gym_clothes.svg", text:"gym_clothes"},
-    {id: 51, src: "../imgs/cartas/svg/datos.csv", text:""},
-    {id: 52, src: "../imgs/cartas/svg/datos2.csv", text:""},
-    {id: 53, src: "../imgs/cartas/svg/tes", text:""},
-    {id: 54, src: "../imgs/cartas/svg/ytes free", text:""}
+    {id: 50, src: "../imgs/cartas/svg/050-gym_clothes.svg", text:"gym_clothes"}
 ]

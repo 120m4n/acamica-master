@@ -15,11 +15,42 @@ document.addEventListener("DOMContentLoaded", function(event) {
     fetchData();
 });
 
-const fetchData = ()=> {
+/* async function fetchApiData(){
+    const url = 'https://601c74da1a9c220017060a09.mockapi.io/api/v1/products';
+    const response = await fetch(url);
+    const json = await response.json();
+
+    if(response.status !== 200) throw Error('Error en el servidor');
+
+    return json;
+}
+
+const  fetchData = async ()=> {
     try {
-        
-        const temp_data = data.slice(0, elementos_pag); 
+        const temp_data = await fetchApiData()
+        console.log(temp_data);
+        // const temp_data = data.slice(0, elementos_pag); 
         pintarCards(temp_data);
+    }catch(e) {
+        console.log(e);
+    }
+} */
+
+const  fetchData = ()=> {
+    try {
+        const url = 'https://601c74da1a9c220017060a09.mockapi.io/api/v1/products';
+        const response = fetch(url);
+
+        // if(response.status !== 200) throw Error('Error en el servidor');
+
+        response.then(data => data.json())
+                .then(json => {
+                    console.table(json)
+                    pintarCards(json);
+                })
+        // console.log(temp_data);
+        // const temp_data = data.slice(0, elementos_pag); 
+        // pintarCards(temp_data);
     }catch(e) {
         console.log(e);
     }
@@ -67,7 +98,7 @@ const addCarrito = event => {
         //valida si ya se selecciono el articulo
         if (isSelect == 0){
             setCarrito(event.target);
-            // mensajePersonalizado("elemento agregado exitosamente", elementoAgregado)
+            mensajePersonalizado("elemento agregado exitosamente", elementoAgregado)
         }else{
             // elimina el articulo del carrito
             // console.log("paso por aqui")
@@ -196,16 +227,16 @@ const elementoAgregado = (mensaje)=>{
 const btnpagar = document.getElementById('btn-next');
 
 btnpagar.addEventListener('click', ()=>{
-    console.log(carrito)
+    console.log("contenido carrito",carrito)
     let carrito_ordenado = [];
-    const propiedad = prompt('Escriba "precio" o "nombre" ');
+    const propiedad = prompt('Escriba "precio" o "nombre" para ordenar el contenido del carrito ');
     if (propiedad === "precio"){
          carrito_ordenado = ordenarPor(carrito,comparePorPrecio )
     }else{
          carrito_ordenado = ordenarPor(carrito,comparePorAlpha )
     }
     
-    console.log(carrito_ordenado);
+    console.log("Nuevo Orden:",carrito_ordenado);
 
 
 })
